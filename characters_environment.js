@@ -290,13 +290,13 @@ function autoControl(character){
 function manualControl(character){
   
   if(character.live){
-    if(keyDown(noseX < 300)){
+    if(noseX < 300){
       character.velocity.x-=gameConfig.moveSpeed;
       character.changeAnimation('move');
       character.mirrorX(-1);
     }
 
-    if(keyDown(noseX > 300)){
+    if(noseX > 300){
       character.velocity.x+=gameConfig.moveSpeed;
       character.changeAnimation('move');
       character.mirrorX(1);
@@ -311,7 +311,7 @@ function manualControl(character){
 
 /* Movements of character */
 function jumping(character){
-	if( (keyWentDown(noseY < 200)&&character.live) || (touchIsDown&&character.live) ){
+	if( (noseY < 200  && character.live) || (touchIsDown&&character.live)) {
 		character.velocity.y+=gameConfig.jump;
 	}
 }
